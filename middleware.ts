@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
         .single()
 
       if (!homeWorkspace) {
-        throw new Error(error?.message)
+        return response
       }
 
       return NextResponse.redirect(

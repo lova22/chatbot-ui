@@ -42,7 +42,7 @@ export default async function Login({
       .single()
 
     if (!homeWorkspace) {
-      throw new Error(error.message)
+      return redirect("/setup")
     }
 
     return redirect(`/${homeWorkspace.id}/chat`)
@@ -73,9 +73,7 @@ export default async function Login({
       .single()
 
     if (!homeWorkspace) {
-      throw new Error(
-        homeWorkspaceError?.message || "An unexpected error occurred"
-      )
+      return redirect("/setup")
     }
 
     return redirect(`/${homeWorkspace.id}/chat`)
